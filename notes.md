@@ -107,4 +107,11 @@ function reloadPage(){
 function mamaAlert() {
     alert("Your mama is getting to fat. She needs to lose weight by the end of the month!");
 }
+
+// alert user that his mama is awesome every 5 seconds
+function mamaAwesome() {
+    setTimeout(function () {
+      alert('Your mom is awesome!');
+    }, 5000);
+}
 ```
