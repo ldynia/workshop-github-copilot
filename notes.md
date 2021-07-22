@@ -1,15 +1,22 @@
+### get app secret from environment default to None
 ```python
-# sort list of name descending
-def sort_list_of_name(list_of_name):
-    return sorted(list_of_name, key=lambda x: x.lower(), reverse=True)
-
-
-# read app secret from environment
-if "DJANGO_SECRET" in os.environ:
-    settings.SECRET_KEY = os.environ.get("DJANGO_SECRET")
-    
 # get app secret from environment default to None
 app_secret = os.getenv('APP_SECRET', None)
+
+```
+
+### sort list of name descending
+```python
+names = ['Cecil', 'Adam', 'Brian']
+
+# sort list of names descending
+def sort_names(names):
+    return sorted(names, reverse=True)
+
+print(sort_names(names))
+```
+
+```python
 
 # Get buitcoin price from coinmarketcap.com
 def get_buitcoin():
