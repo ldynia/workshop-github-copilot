@@ -1,3 +1,5 @@
+# Python
+
 ### get app secret from environment variable defaulting to None
 ```python
 # get app secret from environment default to None
@@ -134,6 +136,8 @@ def get_covid19(country="Denmark"):
     with open("covid19.json", "w") as covid19_file:
         json.dump(covid19_data, covid19_file)
 ```
+
+# JavaScript
 
 ```javascript
 
