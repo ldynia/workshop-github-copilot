@@ -1,4 +1,4 @@
-### get app secret from environment default to None
+### get app secret from environment variable defaulting to None
 ```python
 # get app secret from environment default to None
 app_secret = os.getenv('APP_SECRET', None)
