@@ -25,6 +25,41 @@ def factorial(n):
         return n * factorial(n-1)
 ```
 
+### fibonaci
+```python
+# print fibonacci sequence
+def fib(n):
+    a, b = 0, 1
+    while b < n:
+        print(b, end=' ')
+        a, b = b, a+b
+
+print(fib(1000))
+
+
+# calculate fibonacci sequence simple way
+def fib(n):
+    a, b = 0, 1
+    for i in range(n):
+        a, b = b, a + b
+        yield a
+
+for n in fib(10):
+    print(n)
+    
+# calculate fibonacci sequence recursively
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+
+print(fib(10))
+```
+
+
 ### get bitcoind price from coinbase
 ```python
 import requests
