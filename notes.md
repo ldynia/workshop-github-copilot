@@ -2,7 +2,6 @@
 ```python
 # get app secret from environment default to None
 app_secret = os.getenv('APP_SECRET', None)
-
 ```
 
 ### sort list of name descending
@@ -16,22 +15,46 @@ def sort_names(names):
 print(sort_names(names))
 ```
 
+### calculate n factorial
 ```python
+# calculate n factorial
+def factorial(n):
+    if n == 0:
+        return 1 
+    else:
+        return n * factorial(n-1)
+```
 
-# Get buitcoin price from coinmarketcap.com
-def get_buitcoin():
-    url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
+### get bitcoind price from coinbase
+```python
+import requests
+
+# Get bitcoin price
+r = requests.get('https://api.coindesk.com/v1/bpi/currentprice/BTC.json')
+print(r.json())
+
+# get bitcoind price from coinbase
+def get_price(currency):
+    url = 'https://api.coinbase.com/v2/exchange-rates?currency=' + currency
     r = requests.get(url)
-    json_data = r.json()
-    return json_data[0]['price_usd']
+    if r.status_code == 200:
+        return r.json()['data']['rates']['USD']
+    else:
+        return None
 
-# get bitcoin price
-def get_bitcoin_price():
-    url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
-    response = requests.get(url)
-    value = response.json()['bpi']['USD']['rate']
-    return value
-    
+print(get_price('BTC'))
+```
+
+### get covid stats from jhcovid.org and write it to file data.json
+
+```python
+# get covid stats from jhcovid.org and write it to file data.json
+r = requests.get('https://jhcovid.org/api/stats/')
+with open('data.json', 'w') as f:
+    f.write(r.text)
+```
+
+```python
 # get tesla stock price from yahoo finance
 def get_stock_price(stock_name):
     url = 'http://finance.yahoo.com/q?s=' + stock_name
@@ -75,13 +98,6 @@ def get_covid19(country="Denmark"):
     
     with open("covid19.json", "w") as covid19_file:
         json.dump(covid19_data, covid19_file)
-
-# calculate n factorial
-def factorial(n):
-    if n == 0:
-        return 1 
-    else:
-        return n * factorial(n-1)
 ```
 
 ```javascript
